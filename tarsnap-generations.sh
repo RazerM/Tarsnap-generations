@@ -137,7 +137,8 @@ for dir in $(cat $PATHS) ; do
 			echo "$NOW-$BK_TYPE-$HOSTNAME-$(echo $dir) backup done."
 		fi
 	else
-		echo "$NOW-$BK_TYPE-$HOSTNAME-$(echo $dir) backup error. Exiting" ; exit $?
+		errcode=$?
+		echo "$NOW-$BK_TYPE-$HOSTNAME-$(echo $dir) backup error. Exiting" ; exit $errcode
 	fi
 done	
 
@@ -183,7 +184,8 @@ if [ $BK_TYPE = "HOURLY" ] ; then
 								echo "$backup snapshot deleted."
 							fi
 						else
-							echo "Unable to delete $backup. Exiting" ; exit $?
+							errcode=$?
+							echo "Unable to delete $backup. Exiting" ; exit $errcode
 						fi
 						;;
 				esac
@@ -209,7 +211,8 @@ if [ $BK_TYPE = "DAILY" ] ; then
 								echo "$backup snapshot deleted."
 							fi
 						else
-							echo "Unable to delete $backup. Exiting" ; exit $?
+							errcode=$?
+							echo "Unable to delete $backup. Exiting" ; exit $errcode
 						fi
 						;;
 				esac
@@ -234,7 +237,8 @@ if [ $BK_TYPE = "WEEKLY" ] ; then
 								echo "$backup snapshot deleted."
 							fi
 						else
-							echo "Unable to delete $backup. Exiting" ; exit $?
+							errcode=$?
+							echo "Unable to delete $backup. Exiting" ; exit $errcode
 						fi
 						;;
 				esac
@@ -259,7 +263,8 @@ if [ $BK_TYPE = "MONTHLY" ] ; then
 								echo "$backup snapshot deleted."
 							fi
 						else
-							echo "Unable to delete $backup. Exiting" ; exit $?
+							errcode=$?
+							echo "Unable to delete $backup. Exiting" ; exit $errcode
 						fi
 						;;
 					esac
