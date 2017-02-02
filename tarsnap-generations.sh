@@ -178,7 +178,7 @@ if [ $BK_TYPE = "HOURLY" ] ; then
 						echo "Skipped $backup"
 						;;
 					* )
-						tarsnap -d -f $backup
+						tarsnap "${TARSNAP_ARGS[@]}" -d -f $backup
 						if [ $? = 0 ] ; then
 							if [ $QUIET != "1" ] ; then
 								echo "$backup snapshot deleted."
@@ -205,7 +205,7 @@ if [ $BK_TYPE = "DAILY" ] ; then
 						echo "Skipped $backup"
 						;;
 					* )
-						tarsnap -d -f $backup
+						tarsnap "${TARSNAP_ARGS[@]}" -d -f $backup
 						if [ $? = 0 ] ; then
 							if [ $QUIET != "1" ] ; then 
 								echo "$backup snapshot deleted."
@@ -231,7 +231,7 @@ if [ $BK_TYPE = "WEEKLY" ] ; then
 						echo "Skipped $backup"
 						;;
 					* )
-						tarsnap -d -f $backup
+						tarsnap "${TARSNAP_ARGS[@]}" -d -f $backup
 						if [ $? = 0 ] ; then
 							if [ $QUIET != "1" ] ; then
 								echo "$backup snapshot deleted."
@@ -257,7 +257,7 @@ if [ $BK_TYPE = "MONTHLY" ] ; then
 						echo "Skipped $backup"
 						;;
 					* )
-						tarsnap -d -f $backup
+						tarsnap "${TARSNAP_ARGS[@]}" -d -f $backup
 						if [ $? = 0 ] ; then
 							if [ $QUIET != "1" ] ; then
 								echo "$backup snapshot deleted."
